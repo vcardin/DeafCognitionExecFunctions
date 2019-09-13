@@ -226,8 +226,8 @@ for n=1:size(subjs,1)
         %--------------------------------------------------------------------------
         matlabbatch{c}.spm.spatial.coreg.estimate.ref    = cellstr(biasanat);
 %         matlabbatch{c}.spm.spatial.coreg.estimate.source = cellstr(spm_file(funct,'prefix','meanr'));
-      meanimage=spm_select('FPList', fullfile(datafolder), '^mean.*\.nii$');
-        matlabbatch{c}.spm.spatial.coreg.estimate.source =    cellstr(meanimage);
+     
+     matlabbatch{c}.spm.spatial.coreg.estimate.source =     spm_select('FPList', fullfile(datafolder), '^mean.*\.nii$');
         matlabbatch{c}.spm.spatial.coreg.estimate.other = cellstr(spm_file(funct,'prefix','r'));
         c=c+1;
         
@@ -262,8 +262,8 @@ for n=1:size(subjs,1)
         
         spm_jobman('run',matlabbatch);
         
-        clear matlabbatch  datafolder* funct *anat c meanimage %short* long* wrap_img 
-
+        clear matlabbatch  datafolder* funct *anat c %short* long* wrap_img 
+        clear c
         disp(strcat('Done funct preprocessing__ ', taskfolders{t}, '  participant... ',subjs(n,:)))
         disp('__')
         catch
