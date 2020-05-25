@@ -1,7 +1,7 @@
   
 % by V. Cardin 2020
 % Give two marsbar rois, this script tells you how many voxels they have in common
-% The rois will are usually used as masks from which to extract data from
+% The rois are usually used as masks from which to extract data from
 % an image. The script tells you how many of those voxels from which data
 % is extracted are the same for a given individual. 
 % Where you see a *** --> you need to replace this with your own info
